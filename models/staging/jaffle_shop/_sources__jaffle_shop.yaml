@@ -7,6 +7,7 @@ sources:
       - name: customers
         columns:
           - name: id
+            description: if this was a real database would not need to check unique pk :P
             data_tests:
               - unique
               - not_null
