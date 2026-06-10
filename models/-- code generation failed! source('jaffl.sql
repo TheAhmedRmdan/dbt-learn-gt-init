@@ -1,1 +1,0 @@
--- code generation failed! source('jaffle_shop_training', 'customers')
