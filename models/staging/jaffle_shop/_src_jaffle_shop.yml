@@ -1,0 +1,24 @@
+version: 2
+
+sources:
+  - name: jaffle_shop
+    database: raw
+    tables:
+      - name: customer_web_activity
+      - name: customers
+      - name: items
+      - name: locations
+      - name: order_items
+      - name: orders
+        config:
+          freshness:
+            warn_after:
+              count: 1
+              period: day
+            error_after:
+              count: 2
+              period: day
+          loaded_at_field: _etl_loaded_at
+      - name: products
+      - name: stores
+      - name: supplies
