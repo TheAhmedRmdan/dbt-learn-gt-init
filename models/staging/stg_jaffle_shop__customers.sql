@@ -1,12 +1,20 @@
-with customers as (
+version: 2
 
-    select
-        id as customer_id,
-        first_name,
-        last_name
-
-    {{ source('jaffle_shop', 'orders') }}
-
-)
-
-select * from customers
+sources:
+  - name: jaffle_shop
+    database: raw
+    tables:
+      - name: customers
+      - name: customers_test
+      - name: orders
+        config: 
+          freshness:
+            warn_after:
+              count: 1
+              period: day
+            error_after:
+              count: 2
+              period: day
+          loaded_at_field: _etl_loaded_at
+      - name: orders_view
+      - name: products
