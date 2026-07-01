@@ -1,13 +1,11 @@
-{{ config( materialized = 'view' ) }}
-
 
 WITH
     customers AS (
-        SELECT * FROM {{ref('stg_jaffle_shop__customers')}}
+        SELECT * FROM {{ ref('stg_jaffle_shop__customers') }}
     ),
 
     orders AS (
-        SELECT * FROM {{ref('stg_jaffle_shop__orders')}}
+        SELECT * FROM {{ ref('stg_jaffle_shop__orders') }}
     ),
     
     customer_orders AS (
